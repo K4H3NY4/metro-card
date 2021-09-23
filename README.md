@@ -22,12 +22,6 @@ Most routes require JWT token [Bearer \&lt;JWT\&gt;]
  | Y |
 | Pass – All Top Ups | GET | _/pass/all-topup_ |
  | Y |
-|
- |
- |
- |
- |
- |
 | Crew End Points |
 | Crew - Register | POST | _/crew/register_ | { &quot;first\_name&quot;:&quot; &quot;, &quot;last\_name&quot;:&quot; &quot;, &quot;email&quot;:&quot; &quot;, &quot;phone&quot;:&quot;2547XXXX&quot;, &quot;password&quot;:&quot; &quot;} | N |
 | Crew – Profile | GET | _/crew/profile_ |
@@ -45,12 +39,6 @@ Most routes require JWT token [Bearer \&lt;JWT\&gt;]
  | Y |
 | Crew – View Payments Per Car | GET | _/crew/payments/\&lt;id\&gt;_ |
  | Y |
-|
- |
- |
- |
- |
- |
 | Owner End Points |
 | Owner – Register | POST | _/owner/register_ | { &quot;first\_name&quot;:&quot; &quot;, &quot;last\_name&quot;:&quot; &quot;, &quot;email&quot;:&quot; &quot;, &quot;phone&quot;:&quot;254XXXX&quot;, &quot;password&quot;:&quot; &quot; } | N |
 | Owner – Profile | GET | _/owner/profile_ |
