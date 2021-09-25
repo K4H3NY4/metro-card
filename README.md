@@ -33,7 +33,7 @@ Most routes require JWT token [Bearer \&lt;JWT\&gt;]
 | Crew – View Payments Per Car | GET | _/crew/payments/\&lt;id\&gt;_ | Y |
 | Owner End Points |
 | Owner – Register | POST | _/owner/register_ | { &quot;first\_name&quot;:&quot; &quot;, &quot;last\_name&quot;:&quot; &quot;, &quot;email&quot;:&quot; &quot;, &quot;phone&quot;:&quot;254XXXX&quot;, &quot;password&quot;:&quot; &quot; } | N |
-| Owner – Profile | GET | _/owner/profile_ | Y |
+| Owner – Profile | GET | _/owner/profile_ | | Y |
 | Owner – Login | POST | _/owner/login_ | { &quot;email&quot;:&quot; &quot;, &quot;password&quot;:&quot; &quot;} | N |
 | Owner – Change Password | PUT | _/owner/change-password_ | { &quot;new\_password&quot;:&quot; &quot;, &quot;confirm\_password&quot;:&quot; &quot; } | Y |
 | Owner – Forgot Password | PUT | _/owner/forgot-password_ | { &quot;email&quot;:&quot; &quot; } | N |
@@ -45,7 +45,7 @@ Most routes require JWT token [Bearer \&lt;JWT\&gt;]
 | Owner – Balance | GET | _/owner/balance_ | | Y |
 | Owner – Withdraw | POST | _/owner/withdraw_ | { &quot;amount&quot;:&quot; &quot;, &quot;owner\_phone&quot;:&quot;2547XXXX&quot;} | Y |
 | Owner – All Deposits | GET | _/owner/all-deposits_ | | Y |
-| Owner – All Withdraw | GET | _/owner/all-withdraws_ | Y |
+| Owner – All Withdraw | GET | _/owner/all-withdraws_ | | Y |
 | Owner – View Payments P. Car | GET | _/owner/vehicle/payment/\&lt;id\&gt;_ | Y |
 | Owner – Transfer | PUT | _/owner/transfer_ | { &quot;email&quot;:&quot; &quot;,&quot;reg\_no&quot;:&quot;KGA 200X&quot;} | Y |
 | Owner – Edit Vehicle | PUT | _/owner/vehicle/1_ | {&quot;sacco&quot;:&quot; &quot;,&quot;capacity&quot;:&quot;14&quot;} | Y |
