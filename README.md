@@ -46,6 +46,6 @@ Most routes require JWT token [Bearer \&lt;JWT\&gt;]
 | Owner – Withdraw | POST | _/owner/withdraw_ | { &quot;amount&quot;:&quot; &quot;, &quot;owner\_phone&quot;:&quot;2547XXXX&quot;} | Y |
 | Owner – All Deposits | GET | _/owner/all-deposits_ | | Y |
 | Owner – All Withdraw | GET | _/owner/all-withdraws_ | | Y |
-| Owner – View Payments P. Car | GET | _/owner/vehicle/payment/\&lt;id\&gt;_ | Y |
+| Owner – View Payments P. Car | GET | _/owner/vehicle/payment/\&lt;id\&gt;_ | | Y |
 | Owner – Transfer | PUT | _/owner/transfer_ | { &quot;email&quot;:&quot; &quot;,&quot;reg\_no&quot;:&quot;KGA 200X&quot;} | Y |
 | Owner – Edit Vehicle | PUT | _/owner/vehicle/1_ | {&quot;sacco&quot;:&quot; &quot;,&quot;capacity&quot;:&quot;14&quot;} | Y |
