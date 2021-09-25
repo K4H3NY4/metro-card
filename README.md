@@ -20,7 +20,7 @@ Most routes require JWT token [Bearer \&lt;JWT\&gt;]
 | Pass – All Top Ups | GET | _/pass/all-topup_ | | Y |
 | Crew End Points |
 | Crew - Register | POST | _/crew/register_ | { &quot;first\_name&quot;:&quot; &quot;, &quot;last\_name&quot;:&quot; &quot;, &quot;email&quot;:&quot; &quot;, &quot;phone&quot;:&quot;2547XXXX&quot;, &quot;password&quot;:&quot; &quot;} | N |
-| Crew – Profile | GET | _/crew/profile_ | Y |
+| Crew – Profile | GET | _/crew/profile_ | | Y |
 | Crew – Login | POST | _/crew/login_ | { &quot;email&quot;:&quot; &quot;, &quot;password&quot;:&quot; &quot;} | N |
 | Crew – Forgot Password | PUT | _/crew/forgot-password_ | {&quot;email&quot;:&quot; &quot;} | N |
 | Crew – Change Password | PUT | _/crew/change-password_ | {&quot;new\_password&quot;:&quot; &quot;, &quot;confirm\_password&quot;:&quot; &quot; } | Y |
