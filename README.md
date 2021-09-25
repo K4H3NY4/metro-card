@@ -8,16 +8,16 @@ Most routes require JWT token [Bearer \&lt;JWT\&gt;]
 | --- | --- | --- | --- | --- |
 | Passenger End Points |
 | Pass – Register | POST | _/pass/register_ | {&quot;first\_name&quot;:&quot; &quot;,&quot;last\_name&quot;:&quot; &quot;, &quot;email&quot;:&quot; &quot;,&quot;phone&quot;:&quot;2547xxxxx&quot;, &quot;password&quot;:&quot; &quot; } | N |
-| Pass - Profile | GET | _/pass/profile_ | Y |
-| Pass – Balance | GET | _/pass/balance_ | Y |
+| Pass - Profile | GET | _/pass/profile_ | | Y |
+| Pass – Balance | GET | _/pass/balance_ | | Y |
 | Pass – Login | POST | _/pass/login_ | { &quot;email&quot;:&quot; &quot;, &quot;password&quot;:&quot; &quot; } | N |
 | Pass – Edit Profile | PUT | _/pass/edit_ | { &quot;first\_name&quot;:&quot; &quot;, &quot;last\_name&quot;:&quot; &quot; } | Y |
 | Pass – Top Up | POST | _/pass/topup_ | {&quot;amount&quot;:&quot;1000&quot;} | Y |
 | Pass – Pay | POST | _/pay/pay_ | {&quot;reg\_no&quot;:&quot;KGD 123A&quot;,&quot;amount&quot;:&quot;120&quot;} | Y |
 | Pass – Forgot Password | PUT | _/pass/forgot-password_ | { &quot;email&quot;:&quot; &quot;} | N |
 | Pass – Change Password | PUT | _/pass/change-password_ | {&quot;new\_password&quot;:&quot; &quot;,&quot;confirm\_password&quot;:&quot; &quot;} | Y |
-| Pass – All Payments | GET | _/pass/all-payments_ | Y |
-| Pass – All Top Ups | GET | _/pass/all-topup_ | Y |
+| Pass – All Payments | GET | _/pass/all-payments_ | | Y |
+| Pass – All Top Ups | GET | _/pass/all-topup_ | | Y |
 | Crew End Points |
 | Crew - Register | POST | _/crew/register_ | { &quot;first\_name&quot;:&quot; &quot;, &quot;last\_name&quot;:&quot; &quot;, &quot;email&quot;:&quot; &quot;, &quot;phone&quot;:&quot;2547XXXX&quot;, &quot;password&quot;:&quot; &quot;} | N |
 | Crew – Profile | GET | _/crew/profile_ | Y |
