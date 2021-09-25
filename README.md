@@ -2,7 +2,7 @@
 
 METRO APP REST API END POINTS | CHEAT SHEET
 
-Most routes require JWT token [Bearer <JWT>;]
+Most routes require JWT token [Bearer JWT;]
 
 | Name | Method | Route | JSON | Protected |
 | --- | --- | --- | --- | --- |
