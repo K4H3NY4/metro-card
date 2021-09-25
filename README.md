@@ -26,7 +26,7 @@ Most routes require JWT token [Bearer \&lt;JWT\&gt;]
 | Crew – Change Password | PUT | _/crew/change-password_ | {&quot;new\_password&quot;:&quot; &quot;, &quot;confirm\_password&quot;:&quot; &quot; } | Y |
 | Crew – Edit Profile | PUT | _/crew/edit_ | { &quot;first\_name&quot;:&quot; &quot;, &quot;last\_name&quot;:&quot; &quot; } | Y |
 | Crew – Add Bookmark | POST | _/crew/bookmark_ | { &quot;reg\_no&quot;:&quot; &quot;, &quot;alias&quot;:&quot; &quot; } | Y |
-| Crew – View Bookmark | GET | _/crew/bookmark/\&lt;id\&gt;_ | Y |
+| Crew – View Bookmark | GET | _/crew/bookmark/\&lt;id\&gt;_ | | Y |
 | Crew – Pay using Bookmark | POST | _/crew/bookmark/\&lt;id\&gt;_ | { &quot;amount&quot;:&quot;80&quot;, &quot;pass\_phone&quot;:&quot;2547XXX&quot; } | Y |
 | Crew – View All Bookmark | GET | _/crew/bookmark_ | { &quot;reg\_no&quot;:&quot;KGA 202X&quot;, &quot;alias&quot;:&quot; &quot; } | Y |
 | Crew – View All Payments | GET | _/crew/payments_ | | Y |
