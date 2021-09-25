@@ -30,7 +30,7 @@ Most routes require JWT token [Bearer \&lt;JWT\&gt;]
 | Crew – Pay using Bookmark | POST | _/crew/bookmark/\&lt;id\&gt;_ | { &quot;amount&quot;:&quot;80&quot;, &quot;pass\_phone&quot;:&quot;2547XXX&quot; } | Y |
 | Crew – View All Bookmark | GET | _/crew/bookmark_ | { &quot;reg\_no&quot;:&quot;KGA 202X&quot;, &quot;alias&quot;:&quot; &quot; } | Y |
 | Crew – View All Payments | GET | _/crew/payments_ | | Y |
-| Crew – View Payments Per Car | GET | _/crew/payments/\&lt;id\&gt;_ | Y |
+| Crew – View Payments Per Car | GET | _/crew/payments/\&lt;id\&gt;_ | | Y |
 | Owner End Points |
 | Owner – Register | POST | _/owner/register_ | { &quot;first\_name&quot;:&quot; &quot;, &quot;last\_name&quot;:&quot; &quot;, &quot;email&quot;:&quot; &quot;, &quot;phone&quot;:&quot;254XXXX&quot;, &quot;password&quot;:&quot; &quot; } | N |
 | Owner – Profile | GET | _/owner/profile_ | | Y |
