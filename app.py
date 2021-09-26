@@ -297,8 +297,8 @@ class Reports(db.Model):
 #             view balance  ... |  
 #========================================#     
 
-@app.route('/', methods=[GET])
-def index():
+@app.route('/home', methods=[GET])
+def home():
     return "Welcome to metro card REST API", 200
 
 
