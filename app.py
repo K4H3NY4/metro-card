@@ -298,9 +298,8 @@ class Reports(db.Model):
 #========================================#     
 
 @app.route('/')
-def home():
-    return 'Welcome to metro card REST API", 200
-
+def metro_card():
+    return 'metro card'
 
 #pass register
 @app.route('/pass/register', methods=['POST'])
