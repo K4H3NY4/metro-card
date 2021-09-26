@@ -299,7 +299,7 @@ class Reports(db.Model):
 
 @app.route('/')
 def metro_card():
-    return 'metro card'
+    return 'metro card REST API'
 
 #pass register
 @app.route('/pass/register', methods=['POST'])
