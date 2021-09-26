@@ -297,6 +297,10 @@ class Reports(db.Model):
 #             view balance  ... |  
 #========================================#     
 
+@app.route('/')
+def home():
+    return 'Welcome to metro card REST API", 200
+
 
 #pass register
 @app.route('/pass/register', methods=['POST'])
