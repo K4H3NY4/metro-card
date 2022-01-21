@@ -461,7 +461,11 @@ def pass_topup():
         user = Passengers.query.filter_by(ref=ref).first()
         pass_phone = user.phone
         amounts = request.json['amount']
-        amount = int(amounts)
+
+        if( amounts > 0):
+            amount = int(amounts)
+        else:
+            amount = 0
         status = 'Complete'
         #mpesa_code = 'Pending12'
 
