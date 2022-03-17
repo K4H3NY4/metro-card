@@ -190,16 +190,20 @@ class Payments(db.Model):
     amount= db.Column(db.Integer)
     pass_phone = db.Column(db.String)
     crew_ref = db.Column(db.String)
+    crew_share = db.Column(db.Integer)
+    owner_share = db.Column(db.Integer)
     owner_ref = db.Column(db.String)
     created_at = db.Column(db.String)
 
 
-    def __init__(self,ref,reg_no, amount, pass_phone, crew_ref,owner_ref, created_at):
+    def __init__(self,ref,reg_no, amount, pass_phone, crew_ref,crew_share,owner_share,owner_ref,created_at):
         self.ref = ref
         self.reg_no = reg_no
         self.amount = amount
         self.pass_phone = pass_phone
         self.crew_ref = crew_ref
+        self.crew_share = crew_share
+        self.owner_share = owner_share
         self.owner_ref = owner_ref
         self.created_at = created_at
 
@@ -233,9 +237,10 @@ class Withdraws(db.Model):
     amount_received = db.Column(db.Integer)
     status = db.Column(db.String)
     owner_ref = db.Column(db.String)
+    crew_ref = db.Column(db.String)
     created_at = db.Column(db.String)
 
-    def __init__(self,mpesa_code, amount, owner_phone,service_charge,amount_received,status,owner_ref,created_at):
+    def __init__(self,mpesa_code, amount, owner_phone,service_charge,amount_received,status,owner_ref,crew_ref,created_at):
         self.mpesa_code = mpesa_code
         self.amount = amount
         self.owner_phone = owner_phone
@@ -243,6 +248,7 @@ class Withdraws(db.Model):
         self.amount_received = amount_received
         self.status = status
         self.owner_ref = owner_ref
+        self.crew_ref = crew_ref
         self.created_at = created_at
 
 
@@ -560,7 +566,9 @@ def pass_pay():
         balance = int(topup) - int(payment)
 
         if (balance >= int(amount) > 0):
-             new_payment = Payments(ref,reg_no,int(amount), pass_phone, crew_ref,owner_ref, created_at)
+             crew_share = 0
+             owner_share = amount
+             new_payment = Payments(ref,reg_no,int(amount), pass_phone, crew_ref,int(crew_share),int(owner_share),owner_ref, created_at)
              db.session.add(new_payment)
              db.session.commit()
 
@@ -1530,7 +1538,9 @@ def crew_add_payment_using_bookmark(id):
         total_balance = int(topup) - int(payment)
         #"""
         if (total_balance >= int(amount) > 0):
-             new_payment = Payments(ref,reg_no, amount, pass_phone, crew_ref,owner_ref, created_at)
+             crew_share = amount * (6/100)
+             owner_share = amount - crew_share
+             new_payment = Payments(ref,reg_no, amount, pass_phone, crew_ref, int(crew_share), int(owner_share),owner_ref, created_at)
              db.session.add(new_payment)
              db.session.commit()
 
