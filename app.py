@@ -30,31 +30,17 @@ jwt = JWTManager(app)
 
 
 """
-
-
 DATABASES:
 ===========================
-
-
 Passangers: id, phone, first_name, Last_name, email, password, ref
-
 Owners: id, phone, first_name, Last_name, email, password,ref
-
 Crew: id, phone, first_name, last_name, email, password, ref
-
 Vehicle: id, reg_no, sacco, capacity, owner_ref
-
 Payments: id, ref, reg_no, amount, passanger_phone, crew_ref
-
 Top-Up; id, mpesa, phone, amount,
-
 Withdraw: id, mpesa, phone, service_charge ,amount, amount_received, owner_ref
-
 Crew_bookmark: id, reg_no, alias, crew_ref
-
 Report: id, ref, reg_no, alias, report,
-
-
 PASSANGERS:
 ==========================
 Enter reg no and amount to pay ride
@@ -63,8 +49,6 @@ view payment and deposit history
 view ride details, reg_no and sacco
 Report matatu
 Edit profile
-
-
 OWNER:
 ==========================
 Register vehicle
@@ -72,16 +56,11 @@ Withdraw funds
 view payments per vehicle and withdraws
 view reposts per vehicle
 Edit profile
-
-
 CREW:
 ==========================
 Enter userphone and amount to pay ride
 view payment history as per vehicle
 Edit profile
-
-
-
 """
 
 
@@ -190,20 +169,16 @@ class Payments(db.Model):
     amount= db.Column(db.Integer)
     pass_phone = db.Column(db.String)
     crew_ref = db.Column(db.String)
-    crew_share = db.Column(db.Integer)
-    owner_share = db.Column(db.Integer)
     owner_ref = db.Column(db.String)
     created_at = db.Column(db.String)
 
 
-    def __init__(self,ref,reg_no, amount, pass_phone, crew_ref,crew_share,owner_share,owner_ref,created_at):
+    def __init__(self,ref,reg_no, amount, pass_phone, crew_ref,owner_ref, created_at):
         self.ref = ref
         self.reg_no = reg_no
         self.amount = amount
         self.pass_phone = pass_phone
         self.crew_ref = crew_ref
-        self.crew_share = crew_share
-        self.owner_share = owner_share
         self.owner_ref = owner_ref
         self.created_at = created_at
 
@@ -237,10 +212,9 @@ class Withdraws(db.Model):
     amount_received = db.Column(db.Integer)
     status = db.Column(db.String)
     owner_ref = db.Column(db.String)
-    crew_ref = db.Column(db.String)
     created_at = db.Column(db.String)
 
-    def __init__(self,mpesa_code, amount, owner_phone,service_charge,amount_received,status,owner_ref,crew_ref,created_at):
+    def __init__(self,mpesa_code, amount, owner_phone,service_charge,amount_received,status,owner_ref,created_at):
         self.mpesa_code = mpesa_code
         self.amount = amount
         self.owner_phone = owner_phone
@@ -248,7 +222,6 @@ class Withdraws(db.Model):
         self.amount_received = amount_received
         self.status = status
         self.owner_ref = owner_ref
-        self.crew_ref = crew_ref
         self.created_at = created_at
 
 
@@ -305,7 +278,7 @@ class Reports(db.Model):
 
 @app.route('/')
 def metro_card():
-    return 'metro card REST API'
+    return 'Super Metro Demo'
 
 #pass register
 @app.route('/pass/register', methods=['POST'])
@@ -467,11 +440,7 @@ def pass_topup():
         user = Passengers.query.filter_by(ref=ref).first()
         pass_phone = user.phone
         amounts = request.json['amount']
-
-        if( amounts > 0):
-            amount = int(amounts)
-        else:
-            amount = 0
+        amount = int(amounts)
         status = 'Complete'
         #mpesa_code = 'Pending12'
 
@@ -566,9 +535,7 @@ def pass_pay():
         balance = int(topup) - int(payment)
 
         if (balance >= int(amount) > 0):
-             crew_share = 0
-             owner_share = amount
-             new_payment = Payments(ref,reg_no,int(amount), pass_phone, crew_ref,int(crew_share),int(owner_share),owner_ref, created_at)
+             new_payment = Payments(ref,reg_no,int(amount), pass_phone, crew_ref,owner_ref, created_at)
              db.session.add(new_payment)
              db.session.commit()
 
@@ -576,7 +543,7 @@ def pass_pay():
             
         else:
 
-            return {"message":"no money in wallet"},200
+            return {"message":"no money in wallet"},406
 
 
     except:
@@ -1538,9 +1505,7 @@ def crew_add_payment_using_bookmark(id):
         total_balance = int(topup) - int(payment)
         #"""
         if (total_balance >= int(amount) > 0):
-             crew_share = amount * (6/100)
-             owner_share = amount - crew_share
-             new_payment = Payments(ref,reg_no, amount, pass_phone, crew_ref, int(crew_share), int(owner_share),owner_ref, created_at)
+             new_payment = Payments(ref,reg_no, amount, pass_phone, crew_ref,owner_ref, created_at)
              db.session.add(new_payment)
              db.session.commit()
 
