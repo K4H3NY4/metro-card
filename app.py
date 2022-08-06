@@ -456,19 +456,14 @@ def pass_topup():
         mpesa_gen = easy_password.join(e)
         mpesa_code = mpesa_gen[:7]
 
-        if(amount > 0):
-            new_topup = Topups(pass_phone,amount,mpesa_code,status,created_at)
-            db.session.add(new_topup)
-            db.session.commit()
-            return 'Topup Successful'
-        else:
+        if(amount < 0):
             return 'Error: Amount must be greater than 0'
     
-       
+        new_topup = Topups(mpesa_code,amount,pass_phone,status,created_at)
+        db.session.add(new_topup)
+        db.session.commit()    
 
-
-
-
+        return 'Top Up successful'
 
     except:
         return 'Something went wrong or mpesa code exists'
