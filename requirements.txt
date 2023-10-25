@@ -32,5 +32,5 @@ six==1.16.0
 SQLAlchemy==1.4.23
 toml==0.10.2
 virtualenv==20.8.1
-Werkzeug==2.2.3
+Werkzeug==3.0.1
 zope.interface==5.4.0
